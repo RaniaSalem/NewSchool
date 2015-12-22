@@ -16,55 +16,58 @@ import java.sql.Statement;
  * @author Noura
  */
 public class DataBaseDaoImp implements DataBaseDao {
-    DataBasePojo mypojo;
- Connection con;
- Statement stmt;
- ResultSet rs;
-  public DataBaseDaoImp(){
-  
-  this.con=mypojo.getCon();
-  this.stmt=mypojo.getStmt();
-  this.rs=mypojo.getRs();
-  }
-public void openConnection(){
 
- try {  
+    DataBasePojo mypojo;
+    Connection con;
+    Statement stmt;
+    ResultSet rs;
+
+    public DataBaseDaoImp() {
+
+        this.con = mypojo.getCon();
+        this.stmt = mypojo.getStmt();
+        this.rs = mypojo.getRs();
+    }
+
+    public void openConnection() {
+
+        try {
             Class.forName("com.mysql.jdbc.Driver");
-            String connectionUrl = "jdbc:mysql://localhost/ School?" + 
-                                   "user=root&password=123";
-   
-       this.con=DriverManager.getConnection(connectionUrl);
-} catch (SQLException e) {
-            System.out.println("SQL Exception: "+ e.toString());
+            String connectionUrl = "jdbc:mysql://localhost/ School?"
+                    + "user=root&password=123";
+
+            this.con = DriverManager.getConnection(connectionUrl);
+        } catch (SQLException e) {
+            System.out.println("SQL Exception: " + e.toString());
         } catch (ClassNotFoundException cE) {
-            System.out.println("Class Not Found Exception: "+ cE.toString());
+            System.out.println("Class Not Found Exception: " + cE.toString());
         }
 
-}
+    }
 
-public void closeConnection(){
-try{
-this.stmt.close();
-}catch (SQLException e) {
-            System.out.println("SQL Exception: "+ e.toString());
-        } 
-}
+    public void closeConnection() {
+        try {
+            this.stmt.close();
+        } catch (SQLException e) {
+            System.out.println("SQL Exception: " + e.toString());
+        }
+    }
 
-public void updateQuery( String sql){
-    try{
- this.stmt.executeUpdate(sql);
-    }catch (SQLException e) {
-            System.out.println("SQL Exception: "+ e.toString());
-        } 
-}
+    public void updateQuery(String sql) {
+        try {
+            this.stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.out.println("SQL Exception: " + e.toString());
+        }
+    }
 
-public  ResultSet excuteeQuery(String sql){
- try{
-this.rs=this.stmt.executeQuery(sql);
-  
- }catch (SQLException e) {
-            System.out.println("SQL Exception: "+ e.toString());
-        } 
-    return this.rs;   
-}
+    public ResultSet excuteeQuery(String sql) {
+        try {
+            this.rs = this.stmt.executeQuery(sql);
+
+        } catch (SQLException e) {
+            System.out.println("SQL Exception: " + e.toString());
+        }
+        return this.rs;
+    }
 }
