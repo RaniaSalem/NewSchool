@@ -6,7 +6,7 @@ public class TableOfSubject {
     private int tableTime; 
     private int tableDay;
     private Subject subjId;
-    private LevelYear levelId; 
+    private LevelYear levelYear; 
 
     /**
      * @return the tableId
@@ -65,16 +65,18 @@ public class TableOfSubject {
     }
 
     /**
-     * @return the levelId
+     * @return the levelYear
      */
-    public LevelYear getLevelId() {
-        return levelId;
+    public LevelYear getLevelYear() {
+        return levelYear;
     }
 
     /**
-     * @param levelId the levelId to set
+     * @param levelYear the levelYear to set
      */
-    public void setLevelId(LevelYear levelId) {
-        this.levelId = levelId;
+    public void setLevelYear(LevelYear levelYear) {
+        this.levelYear = levelYear;
     }
+
+
 }

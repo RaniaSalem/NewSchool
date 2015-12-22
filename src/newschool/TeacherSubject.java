@@ -2,34 +2,37 @@ package newschool;
 
 public class TeacherSubject {
 
-    private Subject subId; 
-    private Teacher techId;
+    private Subject subject; 
+    private Teacher teacher;
 
+ 
     /**
-     * @return the subId
+     * @return the teacher
      */
-    public Subject getSubId() {
-        return subId;
+    public Teacher getTeacher() {
+        return teacher;
     }
 
     /**
-     * @param subId the subId to set
+     * @param teacher the teacher to set
      */
-    public void setSubId(Subject subId) {
-        this.subId = subId;
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 
     /**
-     * @return the techId
+     * @return the subject
      */
-    public Teacher getTechId() {
-        return techId;
+    public Subject getSubject() {
+        return subject;
     }
 
     /**
-     * @param techId the techId to set
+     * @param subject the subject to set
      */
-    public void setTechId(Teacher techId) {
-        this.techId = techId;
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
+
+  
 }
