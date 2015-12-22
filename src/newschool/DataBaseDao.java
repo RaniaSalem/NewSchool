@@ -20,5 +20,5 @@ public interface DataBaseDao {
 
     public void updateQuery(String sql);
 
-    public ResultSet excuteeQuery(String sql);
+    public ResultSet excuteQuery(String sql);
 }

@@ -38,9 +38,11 @@ public class DataBaseDaoImp implements DataBaseDao {
 
             this.con = DriverManager.getConnection(connectionUrl);
         } catch (SQLException e) {
-            System.out.println("SQL Exception: " + e.toString());
+            //System.out.println("SQL Exception: " + e.toString());
+            e.printStackTrace();
         } catch (ClassNotFoundException cE) {
-            System.out.println("Class Not Found Exception: " + cE.toString());
+            //System.out.println("Class Not Found Exception: " + cE.toString());
+            cE.printStackTrace();
         }
 
     }
@@ -49,24 +51,32 @@ public class DataBaseDaoImp implements DataBaseDao {
         try {
             this.stmt.close();
         } catch (SQLException e) {
-            System.out.println("SQL Exception: " + e.toString());
+            //System.out.println("SQL Exception: " + e.toString());
+            e.printStackTrace();
         }
     }
 
     public void updateQuery(String sql) {
+        if (sql == null) {
+            return;
+        }
         try {
             this.stmt.executeUpdate(sql);
         } catch (SQLException e) {
-            System.out.println("SQL Exception: " + e.toString());
+            //System.out.println("SQL Exception: " + e.toString());
+            e.printStackTrace();
         }
     }
 
-    public ResultSet excuteeQuery(String sql) {
+    public ResultSet excuteQuery(String sql) {
+        if (sql == null) {
+            return null;
+        }
         try {
             this.rs = this.stmt.executeQuery(sql);
-
         } catch (SQLException e) {
-            System.out.println("SQL Exception: " + e.toString());
+            //System.out.println("SQL Exception: " + e.toString());
+            e.printStackTrace();
         }
         return this.rs;
     }
