@@ -3,7 +3,7 @@ package newschool;
 public class Result {
 
     private Questions quesId;
-    private Student studID;
+    private Student student;
     private int grade; 
 
     public static void main(String[] args) {
@@ -39,16 +39,18 @@ public class Result {
     }
 
     /**
-     * @return the studID
+     * @return the student
      */
-    public Student getStudID() {
-        return studID;
+    public Student getStudent() {
+        return student;
     }
 
     /**
-     * @param studID the studID to set
+     * @param student the student to set
      */
-    public void setStudID(Student studID) {
-        this.studID = studID;
+    public void setStudent(Student student) {
+        this.student = student;
     }
+
+
 }
