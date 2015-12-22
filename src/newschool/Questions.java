@@ -10,7 +10,7 @@ public class Questions {
     private String quesThirdChoice;
     private String quesFourthChoice;
     private String quesQuizTest;
-    private Subject subjId;
+    private Subject subject;
 
     public static void main(String[] args) {
         System.out.println("Question");
@@ -129,16 +129,18 @@ public class Questions {
     }
 
     /**
-     * @return the subjId
+     * @return the subject
      */
-    public Subject getSubjId() {
-        return subjId;
+    public Subject getSubject() {
+        return subject;
     }
 
     /**
-     * @param subjId the subjId to set
+     * @param subject the subject to set
      */
-    public void setSubjId(Subject subjId) {
-        this.subjId = subjId;
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
+
+   
 }
