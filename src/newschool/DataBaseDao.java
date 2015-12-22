@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public interface DataBaseDao {
 
-    public void openConnection();
+    public void openConnection(); 
 
     public void closeConnection();
 
