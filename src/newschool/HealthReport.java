@@ -13,7 +13,7 @@ public class HealthReport {
      private int reportId;
     private String reportContent;
     private int healthId;
-    private int student_ID;
+    
     private Student student;
 
     public Student getStudent() {
@@ -48,13 +48,7 @@ public class HealthReport {
         this.healthId = healthId;
     }
 
-    public int getStudent_ID() {
-        return student_ID;
-    }
-
-    public void setStudent_ID(int student_ID) {
-        this.student_ID = student_ID;
-    }
+   
 
    
     
