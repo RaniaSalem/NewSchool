@@ -11,11 +11,7 @@ package newschool;
  */
 public class UserSecurity {
 
-    private int userId;
-    private int manId;
-    private int studentId;
-    private int parentId;
-    private int teachId;
+
     private int userPassword;
     private String userName;
     private Student student;
@@ -23,16 +19,22 @@ public class UserSecurity {
     private Parent parent;
     private HealthVisitor healthvisitor;
     private Manager manager;
-    private int healthId;
 
-    public int getHealthId() {
-        return healthId;
+    public int getUserPassword() {
+        return userPassword;
     }
 
-    public void setHealthId(int healthId) {
-        this.healthId = healthId;
+    public void setUserPassword(int userPassword) {
+        this.userPassword = userPassword;
     }
-    
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
     public Student getStudent() {
         return student;
@@ -75,60 +77,5 @@ public class UserSecurity {
     }
     
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public int getManId() {
-        return manId;
-    }
-
-    public void setManId(int manId) {
-        this.manId = manId;
-    }
-
-    public int getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
-    }
-
-    public int getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(int parentId) {
-        this.parentId = parentId;
-    }
-
-    public int getTeachId() {
-        return teachId;
-    }
-
-    public void setTeachId(int teachId) {
-        this.teachId = teachId;
-    }
-
-    public int getUserPassword() {
-        return userPassword;
-    }
-
-    public void setUserPassword(int userPassword) {
-        this.userPassword = userPassword;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
     
 }
