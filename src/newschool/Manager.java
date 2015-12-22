@@ -4,11 +4,11 @@ import java.util.Date;
 
 public class Manager {
 
-    private int Id;
+    private int manId;
     private Date dateOfHire;
     private String qualification;
     private String position;
-    private String firstNname;
+    private String firstName;
     private String midName;
     private String lastName;
     private String address;
@@ -21,19 +21,7 @@ public class Manager {
         System.out.println("I 'm Manager...MahmoudTestNow");
     }
 
-    /**
-     * @return the Id
-     */
-    public int getId() {
-        return Id;
-    }
-
-    /**
-     * @param Id the Id to set
-     */
-    public void setId(int Id) {
-        this.Id = Id;
-    }
+   
 
     /**
      * @return the dateOfHire
@@ -75,20 +63,6 @@ public class Manager {
      */
     public void setPosition(String position) {
         this.position = position;
-    }
-
-    /**
-     * @return the firstNname
-     */
-    public String getFirstNname() {
-        return firstNname;
-    }
-
-    /**
-     * @param firstNname the firstNname to set
-     */
-    public void setFirstNname(String firstNname) {
-        this.firstNname = firstNname;
     }
 
     /**
@@ -187,5 +161,19 @@ public class Manager {
      */
     public void setType(String type) {
         this.type = type;
+    }
+
+    /**
+     * @return the manId
+     */
+    public int getManId() {
+        return manId;
+    }
+
+    /**
+     * @param manId the manId to set
+     */
+    public void setManId(int manId) {
+        this.manId = manId;
     }
 }
