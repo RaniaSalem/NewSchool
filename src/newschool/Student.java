@@ -12,7 +12,7 @@ public class Student {
    private String gender;
    private Date  dateOfBirth;
    private String  phone;
-   private Parent parentId;
+   private Parent parent;
 
     public int getStudentId() {
         return studentId;
@@ -86,13 +86,19 @@ public class Student {
         this.phone = phone;
     }
 
-   
-
-    public int getParentId() {
-        return  parentId.parentId;
+    /**
+     * @return the parent
+     */
+    public Parent getParent() {
+        return parent;
     }
 
-    public void setParentId(int parentId) {
-        this.parentId.ParentId = parentId;
+    /**
+     * @param parent the parent to set
+     */
+    public void setParent(Parent parent) {
+        this.parent = parent;
     }
+
+
 }
