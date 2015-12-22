@@ -176,4 +176,18 @@ public class Manager {
     public void setManId(int manId) {
         this.manId = manId;
     }
+
+    /**
+     * @return the firstName
+     */
+    public String getFirstName() {
+        return firstName;
+    }
+
+    /**
+     * @param firstName the firstName to set
+     */
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 }
