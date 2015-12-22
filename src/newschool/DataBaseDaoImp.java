@@ -29,7 +29,6 @@ public class DataBaseDaoImp implements DataBaseDao {
         this.rs = mypojo.getRs();
     }
 
-    @Override
     public void openConnection() {
 
         try {
@@ -46,7 +45,6 @@ public class DataBaseDaoImp implements DataBaseDao {
 
     }
 
-    @Override
     public void closeConnection() {
         try {
             this.stmt.close();
@@ -55,7 +53,6 @@ public class DataBaseDaoImp implements DataBaseDao {
         }
     }
 
-    @Override
     public void updateQuery(String sql) {
         try {
             this.stmt.executeUpdate(sql);
@@ -64,7 +61,6 @@ public class DataBaseDaoImp implements DataBaseDao {
         }
     }
 
-    @Override
     public ResultSet excuteeQuery(String sql) {
         try {
             this.rs = this.stmt.executeQuery(sql);
