@@ -4,7 +4,7 @@ public class LevelYear {
 
     private int levelId;
     private String levelName;
-    private String levelContent;
+    private String levelContent; 
 
     public static void main(String[] args) {
         System.out.println("LevelYear");

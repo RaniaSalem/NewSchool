@@ -4,7 +4,7 @@ public class Result {
 
     private Questions quesId;
     //private Student studID;
-    private int grade;
+    private int grade; 
 
     public static void main(String[] args) {
         System.out.println("Result");

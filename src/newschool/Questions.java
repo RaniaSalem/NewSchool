@@ -5,7 +5,7 @@ public class Questions {
     private int quesId;
     private String questionType;
     private String quesRightChoice;
-    private String quesFirstChoice;
+    private String quesFirstChoice; 
     private String quesSecondChoice;
     private String quesThirdChoice;
     private String quesFourthChoice;
