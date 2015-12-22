@@ -11,9 +11,14 @@ package newschool;
  */
 import java.sql.ResultSet;
 import java.util.ArrayList;
+
 public interface DataBaseDao {
-   public void openConnection();
-public void closeConnection();
-public void updateQuery( String sql);
-public  ResultSet excuteeQuery(String sql); 
+
+    public void openConnection();
+
+    public void closeConnection();
+
+    public void updateQuery(String sql);
+
+    public ResultSet excuteeQuery(String sql);
 }
