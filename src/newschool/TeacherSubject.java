@@ -3,7 +3,7 @@ package newschool;
 public class TeacherSubject {
 
     private Subject subId; 
-    private Teacher techId;
+    private Teacher teacher;
 
     /**
      * @return the subId
@@ -19,17 +19,5 @@ public class TeacherSubject {
         this.subId = subId;
     }
 
-    /**
-     * @return the techId
-     */
-    public Teacher getTechId() {
-        return techId;
-    }
-
-    /**
-     * @param techId the techId to set
-     */
-    public void setTechId(Teacher techId) {
-        this.techId = techId;
-    }
+  
 }
