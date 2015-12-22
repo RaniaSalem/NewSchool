@@ -18,6 +18,62 @@ public class UserSecurity {
     private int teachId;
     private int userPassword;
     private String userName;
+    private Student student;
+    private Teacher teacher;
+    private Parent parent;
+    private HealthVisitor healthvisitor;
+    private Manager manager;
+    private int healthId;
+
+    public int getHealthId() {
+        return healthId;
+    }
+
+    public void setHealthId(int healthId) {
+        this.healthId = healthId;
+    }
+    
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
+    public Parent getParent() {
+        return parent;
+    }
+
+    public void setParent(Parent parent) {
+        this.parent = parent;
+    }
+
+    public HealthVisitor getHealthvisitor() {
+        return healthvisitor;
+    }
+
+    public void setHealthvisitor(HealthVisitor healthvisitor) {
+        this.healthvisitor = healthvisitor;
+    }
+
+    public Manager getManager() {
+        return manager;
+    }
+
+    public void setManager(Manager manager) {
+        this.manager = manager;
+    }
+    
 
     public int getUserId() {
         return userId;
