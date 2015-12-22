@@ -2,7 +2,7 @@ package newschool;
 
 public class Result {
 
-    private Questions quesId;
+    private Questions question;
     private Student student;
     private int grade; 
 
@@ -10,20 +10,7 @@ public class Result {
         System.out.println("Result");
     }
 
-    /**
-     * @return the quesId
-     */
-    public Questions getQuesId() {
-        return quesId;
-    }
-
-    /**
-     * @param quesId the quesId to set
-     */
-    public void setQuesId(Questions quesId) {
-        this.quesId = quesId;
-    }
-
+  
     /**
      * @return the grade
      */
@@ -50,6 +37,20 @@ public class Result {
      */
     public void setStudent(Student student) {
         this.student = student;
+    }
+
+    /**
+     * @return the question
+     */
+    public Questions getQuestion() {
+        return question;
+    }
+
+    /**
+     * @param question the question to set
+     */
+    public void setQuestion(Questions question) {
+        this.question = question;
     }
 
 
