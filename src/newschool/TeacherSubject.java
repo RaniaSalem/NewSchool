@@ -19,5 +19,19 @@ public class TeacherSubject {
         this.subId = subId;
     }
 
+    /**
+     * @return the teacher
+     */
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    /**
+     * @param teacher the teacher to set
+     */
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
   
 }
