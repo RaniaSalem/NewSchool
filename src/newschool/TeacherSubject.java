@@ -2,7 +2,7 @@ package newschool;
 
 public class TeacherSubject {
 
-    private Subject subId;
+    private Subject subId; 
     private Teacher techId;
 
     /**

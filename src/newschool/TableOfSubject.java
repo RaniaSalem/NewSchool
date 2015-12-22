@@ -3,7 +3,7 @@ package newschool;
 public class TableOfSubject {
 
     private int tableId;
-    private int tableTime;
+    private int tableTime; 
     private int tableDay;
     private Subject subjId;
     private LevelYear levelId; 

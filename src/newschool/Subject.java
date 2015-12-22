@@ -2,7 +2,7 @@ package newschool;
 
 public class Subject {
     private int subjId;
-   private String subjName;
+   private String subjName; 
    private Teacher techId;
    private String subjDetails;
 
