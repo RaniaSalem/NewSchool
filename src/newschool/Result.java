@@ -3,7 +3,7 @@ package newschool;
 public class Result {
 
     private Questions quesId;
-    private Student studID;
+    private Student student;
     private int grade; 
 
     public static void main(String[] args) {
