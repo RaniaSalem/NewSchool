@@ -10,7 +10,7 @@ public class Student {
    private String lastName;
    private String address;
    private String gender;
-   private Date  dateOfBirth;
+   private Date dateOfBirth;
    private String  phone;
    private Parent parent;
 

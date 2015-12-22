@@ -14,6 +14,15 @@ public class HealthReport {
     private String reportContent;
     private int healthId;
     private int student_ID;
+    private Student student;
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
 
     public int getReportId() {
         return reportId;
