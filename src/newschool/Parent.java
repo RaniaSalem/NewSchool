@@ -21,7 +21,7 @@ public class Parent {
     private String gender;
     private Date dateOfBirth;
     private String Phone;
-    private int studentID;
+    private Student  studentId;
 
     public int getParentId() {
         return parentId;
@@ -87,12 +87,12 @@ public class Parent {
         this.Phone = Phone;
     }
 
-    public int getStudentID() {
-        return studentID;
+    public Student getStudentId() {
+        return studentId;
     }
 
-    public void setStudentID(int studentID) {
-        this.studentID = studentID;
+    public void setStudentId(Student studentId) {
+        this.studentId = studentId;
     }
 
 }
