@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Manager {
 
-    private int Id; 
+    private int Id;
     private Date dateOfHire;
     private String qualification;
     private String position;

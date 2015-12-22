@@ -5,13 +5,13 @@ public class Questions {
     private int quesId;
     private String questionType;
     private String quesRightChoice;
-    private String quesFirstChoice; 
+    private String quesFirstChoice;
     private String quesSecondChoice;
     private String quesThirdChoice;
     private String quesFourthChoice;
     private String quesQuizTest;
+    private Subject subjId;
 
-    //private Subject subjId;
     public static void main(String[] args) {
         System.out.println("Question");
     }
@@ -126,5 +126,19 @@ public class Questions {
      */
     public void setQuesQuizTest(String quesQuizTest) {
         this.quesQuizTest = quesQuizTest;
+    }
+
+    /**
+     * @return the subjId
+     */
+    public Subject getSubjId() {
+        return subjId;
+    }
+
+    /**
+     * @param subjId the subjId to set
+     */
+    public void setSubjId(Subject subjId) {
+        this.subjId = subjId;
     }
 }
