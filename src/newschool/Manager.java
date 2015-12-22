@@ -18,7 +18,7 @@ public class Manager {
     private String type;
 
     public static void main(String[] args) {
-        System.out.println("I 'm Manager...MahmoudTest");
+        System.out.println("I 'm Manager...MahmoudTestNow");
     }
 
     /**
