@@ -14,9 +14,9 @@ import java.util.ArrayList;
 
 public interface DataBaseDao {
 
-    public void openConnection(); 
+//    public void openConnection(); 
 
-    public void closeConnection();
+//    public void closeConnection();
 
     public void updateQuery(String sql);
 
