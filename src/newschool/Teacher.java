@@ -12,7 +12,7 @@ import java.util.Date;
  * @author toshiba
  */
 public class Teacher {
-    private int teacher_ID;
+    private int teacherID;
     private Date dateOfHire;
     private String lastPosition;
     private String qualification;
@@ -26,12 +26,12 @@ public class Teacher {
     private String phone;
     private String type;
 
-    public int getTeacher_ID() {
-        return teacher_ID;
+    public int getTeacherID() {
+        return teacherID;
     }
 
     public void setTeacher_ID(int teacher_ID) {
-        this.teacher_ID = teacher_ID;
+        this.teacherID = teacherID;
     }
 
     public Date getDateOfHire() {
