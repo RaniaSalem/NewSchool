@@ -9,7 +9,7 @@ package newschool;
  *
  * @author manal pc
  */
-public class UserScurity {
+public class UserSecurity {
 
     private int userId;
     private int manId;
