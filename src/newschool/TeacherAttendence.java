@@ -8,10 +8,26 @@ package newschool;
 import java.util.Date;
 public class TeacherAttendence {
 
-    private int attenence_ID;
+    private int attenendceID;
     private Date  attendenceDate;
     private int status;
-    private int teacher_ID;
+
+    public int getAttenendceID() {
+        return attenendceID;
+    }
+
+    public void setAttenendceID(int attenendceID) {
+        this.attenendceID = attenendceID;
+    }
+    private Teacher teacher;
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
 
     public int getStatus() {
         return status;
@@ -21,13 +37,7 @@ public class TeacherAttendence {
         this.status = status;
     }
 
-    public int getAttenence_ID() {
-        return attenence_ID;
-    }
-
-    public void setAttenence_ID(int attenence_ID) {
-        this.attenence_ID = attenence_ID;
-    }
+    
 
     public Date getAttendenceDate() {
         return attendenceDate;
@@ -38,16 +48,7 @@ public class TeacherAttendence {
     }
 
 
-    public int getTeacher_ID() {
-        return teacher_ID;
-    }
-
-    public void setTeacher_ID(int teacher_ID) {
-        this.teacher_ID = teacher_ID;
-    }
-    
-    
-    
+   
     
     
     
