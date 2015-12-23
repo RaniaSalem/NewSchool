@@ -43,14 +43,14 @@ public class DataBaseDaoImp implements DataBaseDao {
         return con;
     }
 
-    private PreparedStatement closeConnection(PreparedStatement ps) {
+    private void closeConnection(PreparedStatement ps) {
         try {
             pstmt = mypojo.getPstmt();
             pstmt.close();
         } catch (SQLException e) {
             //System.out.println("SQL Exception: " + e.toString());
             e.printStackTrace();
-        }return ps ; 
+        }
     }
 
     @Override
