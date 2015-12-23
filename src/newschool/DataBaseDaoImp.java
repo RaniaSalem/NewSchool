@@ -10,7 +10,6 @@ import java.sql.SQLException;
 public class DataBaseDaoImp implements DataBaseDao {
 
     DataBasePojo mypojo;
-    Connection con;
     PreparedStatement pstmt;
     ResultSet rs;
 
@@ -21,14 +20,14 @@ public class DataBaseDaoImp implements DataBaseDao {
 //        this.rs = mypojo.getRs();
 //    }
 
-    private void openConnection() {
-
+    private Connection openConnection() {
+        Connection con = null;    
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String connectionUrl = "jdbc:mysql://localhost/ School?user=root&password=123";
             con= mypojo.getCon();
             con = DriverManager.getConnection(connectionUrl);
-//            PreparedStatement prst =this.con.prepareStatement(""); 
+//            PreparedStatement prst =con.prepareStatement(""); 
 //            ResultSet rs = prst.executeQuery();
 //            while (rs.next() ) {
 //                rs.getInt(0);
@@ -41,50 +40,54 @@ public class DataBaseDaoImp implements DataBaseDao {
             //System.out.println("Class Not Found Exception: " + cE.toString());
             cE.printStackTrace();
         }
-
+        return con;
     }
 
-    private void closeConnection() {
+    private PreparedStatement closeConnection(PreparedStatement ps) {
         try {
             pstmt = mypojo.getPstmt();
             pstmt.close();
         } catch (SQLException e) {
             //System.out.println("SQL Exception: " + e.toString());
             e.printStackTrace();
-        }
+        }return ps ; 
     }
 
     @Override
     public void updateQuery(String sql) {
-        openConnection();
+        Connection conn = openConnection();
+        PreparedStatement ps = null;
         if (sql == null) {
             return;
         }
         try {
-            pstmt = mypojo.getPstmt();
-            pstmt.executeUpdate(sql);
+            ps=conn.prepareStatement(sql);        
+//            pstmt = mypojo.getPstmt();
+            ps.executeUpdate(sql);
         } catch (SQLException e) {
             //System.out.println("SQL Exception: " + e.toString());
             e.printStackTrace();
         }
-        closeConnection();
+        closeConnection(ps);
     }
 
     @Override
     public ResultSet excuteQuery(String sql) {
-        openConnection();
+        Connection conn = openConnection();
+        PreparedStatement ps = null;
         if (sql == null) {
             return null;
         }
         try {
-            pstmt = mypojo.getPstmt();
-            rs=mypojo.getRs();
-            rs = pstmt.executeQuery(sql);
+            ps=conn.prepareStatement(sql);   
+//            pstmt = mypojo.getPstmt();
+//            rs=mypojo.getRs();
+            rs = ps.executeQuery(sql);
         } catch (SQLException e) {
             //System.out.println("SQL Exception: " + e.toString());
             e.printStackTrace();
         }
-        closeConnection();
-        return this.rs;
+        closeConnection(ps);
+        return rs;
     }
 }
