@@ -7,6 +7,7 @@ package newschool;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -37,6 +38,12 @@ public class DataBaseDaoImp implements DataBaseDao {
                     + "user=root&password=123";
 
             this.con = DriverManager.getConnection(connectionUrl);
+//            PreparedStatement prst =this.con.prepareStatement(""); 
+//            ResultSet rs = prst.executeQuery();
+//            while (rs.next() ) {
+//                rs.getInt(0);
+//                rs.getInt(1);
+//            }
         } catch (SQLException e) {
             //System.out.println("SQL Exception: " + e.toString());
             e.printStackTrace();
