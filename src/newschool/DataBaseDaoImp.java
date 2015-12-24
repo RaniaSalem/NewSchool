@@ -48,6 +48,7 @@ public class DataBaseDaoImp implements DataBaseDao {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.executeUpdate(sql);
         } catch (SQLException e) {
+            System.out.println("Duplicate Key please try new Key ");
             e.printStackTrace();
         }
     }
@@ -64,5 +65,6 @@ public class DataBaseDaoImp implements DataBaseDao {
         }
         return rs;
     }
+
 
 }
