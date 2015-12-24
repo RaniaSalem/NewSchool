@@ -25,11 +25,11 @@ public class ManagerDaoImpl {
         System.out.println("mm.getManId() :" + mm.getManId());//select data(FirstName) in table Manager
         managerDaoImpl.InsertDataMan(5,"2015/12/1","high","Manager","Mahmoud","Mohamed","Mostafa","Sharqia","Male","1666/12/1","123456789","High Manager");//insert data(man_id) in table Manager
         managerDaoImpl.removeDataMan(13);//delete data(man_id) in table Manager
-        managerDaoImpl.editDataMan(13, "Mahmoud Mostafa");//update data(first_name) according to (man_id)in table Manager
+        managerDaoImpl.editDataMan(5, "Mahmouddddddd","2015/12/1","high","Manager","Mohamed","Mostafa","Sharqia","Male","1666/12/1","123456789","Manager");//update data(first_name) according to (man_id)in table Manager
         
     }
     
-    private synchronized void InsertDataMan(int manId , Object dateOfHire ,String qualification,String postion,String firstName, String midName,String lastName,String address,String gender,Object dateBirth,String phone,String type) {
+    private synchronized void InsertDataMan(Object manId , Object dateOfHire ,Object qualification,Object postion,Object firstName, Object midName,Object lastName,Object address,Object gender,Object dateBirth,Object phone,Object type) {
         DataBaseDaoImp dataBaseDaoImpl = new DataBaseDaoImp();
         Connection conn = dataBaseDaoImpl.openConnection();
         String sql = "insert into Manager (MAN_ID,`DATE_OF_HIRE`,`QUALIFICATION`,`POSITION`,`FIRST_NAME`,`MID_NAME`,`LAST_NAME`,`ADDRESS`,`GENDER`,`DATE_OF_BIRTH`,`PHONE`,`TYPE`)"
@@ -46,10 +46,11 @@ public class ManagerDaoImpl {
         dataBaseDaoImpl.closeConnection(conn);
     }
     
-    private synchronized void editDataMan(Object manId, Object firstName) {
+    private synchronized void editDataMan(Object manId, Object firstName,Object dateOfHire ,Object qualification,Object postion, Object midName,Object lastName,Object address,Object gender,Object dateBirth,Object phone,Object type) {
         DataBaseDaoImp dataBaseDaoImpl = new DataBaseDaoImp();
         Connection conn = dataBaseDaoImpl.openConnection();
-        String sql = "update Manager set FIRST_NAME = '" + firstName + "'  where MAN_ID = " + manId;
+        String sql = "update Manager set FIRST_NAME = '" + firstName + "' , `DATE_OF_HIRE`='"+dateOfHire+"' , `QUALIFICATION` = '"+qualification+"' , `POSITION`='"+postion+"' , `MID_NAME`='"+midName+"' , `LAST_NAME`='"+lastName+"' , `ADDRESS`='"+address+"' , `GENDER`='"+gender+"' , `DATE_OF_BIRTH`='"+dateBirth+"' , `PHONE`='"+phone+"' , `TYPE`='"+type+"'  where MAN_ID = " + manId;
+        System.out.println("newschool.ManagerDaoImpl.editDataMan():"+sql);
         dataBaseDaoImpl.updateQuery(sql, conn);
         dataBaseDaoImpl.closeConnection(conn);
     }
