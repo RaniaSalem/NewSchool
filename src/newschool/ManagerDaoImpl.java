@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ManagerDaoImpl {
-
+    
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         ManagerDaoImpl managerDaoImpl = new ManagerDaoImpl();
         Manager mm = managerDaoImpl.viewManagerScreen(1);//select data in table Manager
@@ -27,7 +27,7 @@ public class ManagerDaoImpl {
         managerDaoImpl.editDataMan(13, "Mahmoud Mostafa");//update data(first_name) according to (man_id)in table Manager
         
     }
-
+    
     private synchronized void InsertDataMan(Object manId) {
         DataBaseDaoImp dataBaseDaoImpl = new DataBaseDaoImp();
         Connection conn = dataBaseDaoImpl.openConnection();
@@ -35,7 +35,7 @@ public class ManagerDaoImpl {
         dataBaseDaoImpl.updateQuery(sql, conn);
         dataBaseDaoImpl.closeConnection(conn);
     }
-
+    
     private synchronized void removeDataMan(Object manId) {
         DataBaseDaoImp dataBaseDaoImpl = new DataBaseDaoImp();
         Connection conn = dataBaseDaoImpl.openConnection();
@@ -43,7 +43,7 @@ public class ManagerDaoImpl {
         dataBaseDaoImpl.updateQuery(sql, conn);
         dataBaseDaoImpl.closeConnection(conn);
     }
-
+    
     private synchronized void editDataMan(Object manId, Object firstName) {
         DataBaseDaoImp dataBaseDaoImpl = new DataBaseDaoImp();
         Connection conn = dataBaseDaoImpl.openConnection();
@@ -51,14 +51,14 @@ public class ManagerDaoImpl {
         dataBaseDaoImpl.updateQuery(sql, conn);
         dataBaseDaoImpl.closeConnection(conn);
     }
-
-    private Manager viewManagerScreen(int manId ) {
+    
+    private Manager viewManagerScreen(int manId) {
         DataBaseDaoImp dataBaseDaoImpl = new DataBaseDaoImp();
         Connection conn = dataBaseDaoImpl.openConnection();
         String sql1 = "select FIRST_NAME from Manager where MAN_ID = " + manId;
-        String sql ="select `DATE_OF_HIRE`,`QUALIFICATION`,`POSITION`,`FIRST_NAME`,`MID_NAME`,`LAST_NAME`,`ADDRESS` " +
-",`GENDER`,`DATE_OF_BIRTH`,`PHONE`,`TYPE` ,`MAN_ID` " +
-" from manager where MAN_ID = " + manId;
+        String sql = "select `DATE_OF_HIRE`,`QUALIFICATION`,`POSITION`,`FIRST_NAME`,`MID_NAME`,`LAST_NAME`,`ADDRESS` "
+                + ",`GENDER`,`DATE_OF_BIRTH`,`PHONE`,`TYPE` ,`MAN_ID` "
+                + " from manager where MAN_ID = " + manId;
         ResultSet rs = dataBaseDaoImpl.excuteQuery(sql, conn);
         Manager m = new Manager();
         try {
@@ -67,18 +67,18 @@ public class ManagerDaoImpl {
 //                System.out.println("firstName:::" + firstName);
 //                m.setFirstName(firstName);
 
-              m.setDateOfHire(rs.getDate(1));//DATE_OF_HIRE
-              m.setQualification(rs.getString(2));//QUALIFICATION
-              m.setPosition(rs.getString(3));//POSITION
-              m.setFirstName(rs.getString(4));//FIRST_NAME
-              m.setMidName(rs.getString(5));//MID_NAME
-              m.setLastName(rs.getString(6));//LAST_NAME
-              m.setAddress(rs.getString(7));//ADDRESS
-              m.setGender(rs.getString(8));//GENDER
-              m.setDateOfBirth(rs.getDate(9));//DATE_OF_BIRTH
-              m.setPhone( rs.getString(10));//PHONE
-              m.setType(rs.getString(11));//TYPE
-              m.setManId(rs.getInt(12));
+                m.setDateOfHire(rs.getDate(1));//DATE_OF_HIRE
+                m.setQualification(rs.getString(2));//QUALIFICATION
+                m.setPosition(rs.getString(3));//POSITION
+                m.setFirstName(rs.getString(4));//FIRST_NAME
+                m.setMidName(rs.getString(5));//MID_NAME
+                m.setLastName(rs.getString(6));//LAST_NAME
+                m.setAddress(rs.getString(7));//ADDRESS
+                m.setGender(rs.getString(8));//GENDER
+                m.setDateOfBirth(rs.getDate(9));//DATE_OF_BIRTH
+                m.setPhone(rs.getString(10));//PHONE
+                m.setType(rs.getString(11));//TYPE
+                m.setManId(rs.getInt(12));
             }
             dataBaseDaoImpl.closeConnection(conn);
         } catch (Exception ex) {
@@ -86,5 +86,5 @@ public class ManagerDaoImpl {
         }
         return m;
     }
-
+    
 }
