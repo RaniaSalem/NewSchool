@@ -3,6 +3,7 @@ package newschool;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 
 public class ManagerDaoImpl {
     
@@ -22,16 +23,17 @@ public class ManagerDaoImpl {
         System.out.println("m.getDateOfBirth() :" + mm.getDateOfBirth());//select data(FirstName) in table Manager
         System.out.println("mm.getDateOfHire() :" + mm.getDateOfHire());//select data(FirstName) in table Manager
         System.out.println("mm.getManId() :" + mm.getManId());//select data(FirstName) in table Manager
-        managerDaoImpl.InsertDataMan(13);//insert data(man_id) in table Manager
+        managerDaoImpl.InsertDataMan(5,"2015/12/1","high","Manager","Mahmoud","Mohamed","Mostafa","Sharqia","Male","1666/12/1","123456789","High Manager");//insert data(man_id) in table Manager
         managerDaoImpl.removeDataMan(13);//delete data(man_id) in table Manager
         managerDaoImpl.editDataMan(13, "Mahmoud Mostafa");//update data(first_name) according to (man_id)in table Manager
         
     }
     
-    private synchronized void InsertDataMan(Object manId) {
+    private synchronized void InsertDataMan(int manId , Object dateOfHire ,String qualification,String postion,String firstName, String midName,String lastName,String address,String gender,Object dateBirth,String phone,String type) {
         DataBaseDaoImp dataBaseDaoImpl = new DataBaseDaoImp();
         Connection conn = dataBaseDaoImpl.openConnection();
-        String sql = "insert into Manager (MAN_ID)values (" + manId + ")";
+        String sql = "insert into Manager (MAN_ID,`DATE_OF_HIRE`,`QUALIFICATION`,`POSITION`,`FIRST_NAME`,`MID_NAME`,`LAST_NAME`,`ADDRESS`,`GENDER`,`DATE_OF_BIRTH`,`PHONE`,`TYPE`)"
+                + "values (" + manId + ",'"+dateOfHire+"','"+qualification+"','"+postion+"','"+firstName+"','"+midName+"','"+lastName+"','"+address+"','"+gender+"','"+dateBirth+"','"+phone+"','"+type+"')";
         dataBaseDaoImpl.updateQuery(sql, conn);
         dataBaseDaoImpl.closeConnection(conn);
     }
@@ -66,7 +68,6 @@ public class ManagerDaoImpl {
 //                String firstName = rs.getString(1);
 //                System.out.println("firstName:::" + firstName);
 //                m.setFirstName(firstName);
-
                 m.setDateOfHire(rs.getDate(1));//DATE_OF_HIRE
                 m.setQualification(rs.getString(2));//QUALIFICATION
                 m.setPosition(rs.getString(3));//POSITION
