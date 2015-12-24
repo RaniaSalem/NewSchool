@@ -27,8 +27,8 @@ public class DataBaseDaoImp implements DataBaseDao {
             String connectionUrl = "jdbc:mysql://localhost/ School?user=root&password=123";
             con= mypojo.getCon();
             con = DriverManager.getConnection(connectionUrl);
-//            PreparedStatement prst =con.prepareStatement(""); 
-//            ResultSet rs = prst.executeQuery();
+            PreparedStatement prst =con.prepareStatement(""); 
+            ResultSet rs = prst.executeQuery();
 //            while (rs.next() ) {
 //                rs.getInt(0);
 //                rs.getInt(1);
