@@ -1,55 +1,42 @@
 package newschool;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ManagerDaoImpl {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
         ManagerDaoImpl m = new ManagerDaoImpl();
-        Manager mm = m.testViewMan(1);
-//        System.out.println("m.getFirstName() :" + mm.getFirstName());
+        Manager mm = m.viewManagerScreen(1);
+        m.InsertDataMan(13);
+        System.out.println("m.getFirstName() :" + mm.getFirstName());
     }
 
-    public Manager testViewMan(Object manId) {
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        Manager m = new Manager();
-        m.setManId((int) manId);
+    private synchronized void InsertDataMan(Object manId) {
+        DataBaseDaoImp dataBaseDaoImpl = new DataBaseDaoImp();
+        Connection conn = dataBaseDaoImpl.openConnection();
+        String sql = "insert into Manager (MAN_ID)values (" + manId + ")";
+        dataBaseDaoImpl.updateQuery(sql, conn);
+        dataBaseDaoImpl.closeConnection(conn);
+    }
+
+    private Manager viewManagerScreen(int manId) {
+        DataBaseDaoImp dataBaseDaoImpl = new DataBaseDaoImp();
+        Connection conn = dataBaseDaoImpl.openConnection();
         String sql = "select FIRST_NAME from Manager where MAN_ID = " + manId;
+        ResultSet rs = dataBaseDaoImpl.excuteQuery(sql, conn);
+        Manager m = new Manager();
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            String connectionUrl = "jdbc:mysql://localhost/schoolmanagmentsystem";
-            conn = DriverManager.getConnection(connectionUrl, "root", "");
-            ps = conn.prepareStatement(sql);
-            rs = ps.executeQuery();
-            System.out.println("rs.next():" + rs.next());
-            System.out.println("newschool:" + rs.getString(1));
-            while (!rs.next()) {
-                System.out.println("Test");
-                System.out.println("newschool::" + rs.getString(1));
-                m.setFirstName(rs.getString(1));
-                
-                System.out.println("newschool.ManagerDaoImpl.testViewMan()" + rs.getString(1));
+            while (rs.next()) {
+
+                String firstName = rs.getString(1);
+                System.out.println("firstName:::" + firstName);
+                m.setFirstName(firstName);
             }
+            dataBaseDaoImpl.closeConnection(conn);
         } catch (Exception ex) {
             ex.printStackTrace();
-        } finally {
-            try {
-                rs.close();
-                ps.close();
-                conn.close();
-
-            } catch (SQLException ex) {
-                Logger.getLogger(ManagerDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
         }
         return m;
     }
