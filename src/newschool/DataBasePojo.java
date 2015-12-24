@@ -4,7 +4,7 @@ import java.sql.*;
 public class DataBasePojo {
   private Connection con;
    private  ResultSet rs;    
-   private  PreparedStatement pstmt;
+   private  PreparedStatement pstmt; 
    private  Statement stmt;
 
     public Connection getCon() {
