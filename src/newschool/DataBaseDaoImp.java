@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class DataBaseDaoImp implements DataBaseDao {
 
-    DataBasePojo mypojo;
+    DataBasePojo mypojo; 
     PreparedStatement pstmt;
     ResultSet rs;
 
