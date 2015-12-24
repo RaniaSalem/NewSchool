@@ -9,8 +9,8 @@ public class ManagerDaoImpl {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         ManagerDaoImpl managerDaoImpl = new ManagerDaoImpl();
         Manager mm = managerDaoImpl.viewManagerScreen(1);//select data in table Manager
-//        managerDaoImpl.InsertDataMan(13);//insert data(man_id) in table Manager
-//        managerDaoImpl.removeDataMan(13);//delete data(man_id) in table Manager
+        managerDaoImpl.InsertDataMan(13);//insert data(man_id) in table Manager
+        managerDaoImpl.removeDataMan(13);//delete data(man_id) in table Manager
         managerDaoImpl.editDataMan(13, "Mahmoud Mostafa");//update data(first_name) according to (man_id)in table Manager
         System.out.println("m.getFirstName() :" + mm.getFirstName());//select data(FirstName) in table Manager
     }
