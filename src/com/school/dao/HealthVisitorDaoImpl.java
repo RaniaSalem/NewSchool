@@ -39,10 +39,10 @@ public class HealthVisitorDaoImpl extends DataBaseDaoImp implements HealthVisito
     }
 
     @Override
-    public void editDataHealthVisitor(HealthVisitor healthvisitorId, HealthVisitor firstName, HealthVisitor dateOfHire, HealthVisitor qualification, HealthVisitor postion, HealthVisitor midName, HealthVisitor lastName, HealthVisitor address, HealthVisitor gender, HealthVisitor dateBirth, HealthVisitor phone) {
+    public void editDataHealthVisitorFirstName(HealthVisitor healthvisitorId, HealthVisitor firstName, HealthVisitor dateOfHire, HealthVisitor qualification, HealthVisitor postion, HealthVisitor midName, HealthVisitor lastName, HealthVisitor address, HealthVisitor gender, HealthVisitor dateBirth, HealthVisitor phone) {
 
         Connection conn = openConnection();
-        String sql = "update HealthVisitorset FIRST_NAME = '" + firstName + "' , `DATE_OF_HIRE`='" + dateOfHire + "' , `QUALIFICATION` = '" + qualification + "' , `POSITION`='" + "' , `MID_NAME`='" + midName + "' , `LAST_NAME`='" + lastName + "' , `ADDRESS`='" + address + "' , `GENDER`='" + gender + "' , `DATE_OF_BIRTH`='" + dateBirth + "' , `PHONE`='" + phone + "' , `TYPE`='" + "'  where HEALTH_ID = " + healthvisitorId;
+        String sql = "update HealthVisitorset FIRST_NAME = '" + firstName + "' , `DATE_OF_HIRE`='" + dateOfHire + "' , `QUALIFICATION` = '" + qualification +  "' , `MID_NAME`='" + midName + "' , `LAST_NAME`='" + lastName + "' , `ADDRESS`='" + address + "' , `GENDER`='" + gender + "' , `DATE_OF_BIRTH`='" + dateBirth + "' , `PHONE`='" + phone + "' , `TYPE`='" + "'  where HEALTH_ID = " + healthvisitorId;
         System.out.println("newschool.HealthVisitorDaoImpl.editDataHealthVisitor():" + sql);
         updateQuery(sql, conn);
         closeConnection(conn);
@@ -84,5 +84,26 @@ public class HealthVisitorDaoImpl extends DataBaseDaoImp implements HealthVisito
 
     }
 
-   
+    @Override
+    public void editDataHealthVisitorMidName(HealthVisitor healthvisitorId, HealthVisitor firstName, HealthVisitor dateOfHire, HealthVisitor qualification, HealthVisitor postion, HealthVisitor midName, HealthVisitor lastName, HealthVisitor address, HealthVisitor gender, HealthVisitor dateBirth, HealthVisitor phone) {
+
+        Connection conn = openConnection();
+        String sql = "update HealthVisitorset MID_NAME = '" + midName + "' , `DATE_OF_HIRE`='" + dateOfHire + "' , `QUALIFICATION` = '" + qualification + "' , `MID_NAME`='" + midName + "' , `LAST_NAME`='" + lastName + "' , `ADDRESS`='" + address + "' , `GENDER`='" + gender + "' , `DATE_OF_BIRTH`='" + dateBirth + "' , `PHONE`='" + phone + "' , `TYPE`='" + "'  where HEALTH_ID = " + healthvisitorId;
+        System.out.println("newschool.HealthVisitorDaoImpl.editDataHealthVisitor():" + sql);
+        updateQuery(sql, conn);
+        closeConnection(conn);
+
+    }
+    @Override
+    public void editDataHealthVisitorLastName(HealthVisitor healthvisitorId, HealthVisitor firstName, HealthVisitor dateOfHire, HealthVisitor qualification, HealthVisitor postion, HealthVisitor midName, HealthVisitor lastName, HealthVisitor address, HealthVisitor gender, HealthVisitor dateBirth, HealthVisitor phone) {
+
+        Connection conn = openConnection();
+        String sql = "update HealthVisitorset LAST_NAME = '" + lastName + "' , `DATE_OF_HIRE`='" + dateOfHire + "' , `QUALIFICATION` = '" + qualification + "' , `MID_NAME`='" + midName + "' , `FIRST_NAME`='" + firstName + "' , `ADDRESS`='" + address + "' , `GENDER`='" + gender + "' , `DATE_OF_BIRTH`='" + dateBirth + "' , `PHONE`='" + phone + "' , `TYPE`='" + "'  where HEALTH_ID = " + healthvisitorId;
+        System.out.println("newschool.HealthVisitorDaoImpl.editDataHealthVisitor():" + sql);
+        updateQuery(sql, conn);
+        closeConnection(conn);
+
+    }
+    
+    
 }
