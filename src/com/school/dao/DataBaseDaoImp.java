@@ -1,4 +1,4 @@
-package com.school.daoImpl;
+package com.school.dao;
 
 import com.school.dao.DataBaseDao;
 import com.school.pojo.DataBasePojo;

@@ -1,4 +1,4 @@
-package com.school.daoImpl;
+package com.school.dao;
 
 import com.school.dao.ManagerDao;
 import com.school.pojo.Manager;
