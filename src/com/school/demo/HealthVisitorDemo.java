@@ -6,9 +6,9 @@
 package com.school.demo;
 
 import com.school.dao.HealthVisitorDaoImpl;
-import com.school.dao.ManagerDaoImpl;
+
 import com.school.pojo.HealthVisitor;
-import com.school.pojo.Manager;
+
 
 /**
  *
@@ -20,7 +20,7 @@ public class HealthVisitorDemo {
 
         printHealthVisitorDetails(1);
         HealthVisitorDaoImpl healthvisitorDaoImpl = new HealthVisitorDaoImpl();
-        healthvisitorDaoImpl.InsertDataHealthVisitor(1, "2015/12/1", "good", "Doaa", "Magdy", "ibrahim", "mahalla", "female", "2015/12/1", "01111");
+        healthvisitorDaoImpl.InsertDataHealthVisitor(1, "2015/12/1", "good", "Doaa", "Magdy", "ibrahim", "mahalla", "female", "2015/11/1", "01111");
     }
 
     private static void printHealthVisitorDetails(int healthvisitorId) {
