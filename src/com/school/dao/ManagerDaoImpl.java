@@ -1,7 +1,12 @@
 package com.school.dao;
 
 import com.school.pojo.Manager;
+import com.school.pojo.Parent;
+import com.school.pojo.Result;
+import com.school.pojo.Student;
+import com.school.pojo.StudentAttendance;
 import com.school.pojo.Teacher;
+import com.school.pojo.TeacherAttendence;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.LinkedList;
@@ -162,6 +167,132 @@ public class ManagerDaoImpl extends DataBaseDaoImp implements ManagerDao {
                 m.setPhone(rs.getString(12));//PHONE
                 m.setType(rs.getString(13));//TYPE
 //                m.setTeacherID(rs.getInt(14));//TEACH_ID1
+            }
+            closeConnection(conn);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return m;
+    }
+
+    @Override
+    public void insertDataStudent(Object studId, Object levelId, Object firstName, Object midName, Object lastName, Object address, Object gender, Object dateBirth, Object phone, Object parentId) {
+        Connection conn = openConnection();
+        String sql = "insert into students (`STUD_ID`,`LEVEL_ID`,`STUD_FIRST_NAME`,`STUD_MID_NAME`,`LAST_NAME`,`ADDRESS`,`GENDER`,`DATE_OF_BIRTH`,`PHONE`,`PARENT_ID`) "
+                + " values (" + studId + "," + levelId + ",'" + firstName + "','" + midName + "','" + lastName + "','" + address + "','" + gender + "','" + dateBirth + "','" + phone + "'," + parentId + ")";
+        updateQuery(sql, conn);
+        closeConnection(conn);
+    }
+
+    @Override
+    public void removeDataStudent(Object studId) {
+        Connection conn = openConnection();
+        String sql = "delete from students where STUD_ID = " + studId;
+        updateQuery(sql, conn);
+        closeConnection(conn);
+    }
+
+    @Override
+    public void editDataStudent(Object studId, Object levelId, Object firstName, Object midName, Object lastName, Object address, Object gender, Object dateBirth, Object phone, Object parentId) {
+        Connection conn = openConnection();
+        String sql = "update students set STUD_FIRST_NAME = '" + firstName + "' ,  `LEVEL_ID` = " + levelId + " , `STUD_MID_NAME`='" + midName + "' , `LAST_NAME`='" + lastName + "' , `ADDRESS`='" + address + "' , `GENDER`='" + gender + "' , `DATE_OF_BIRTH`='" + dateBirth + "' , `PHONE`='" + phone + "' , `PARENT_ID`=" + parentId + " where STUD_ID = " + studId;
+        System.out.println("newschool.ManagerDaoImpl.editDataMan():" + sql);
+        updateQuery(sql, conn);
+        closeConnection(conn);
+    }
+
+    @Override
+    public Student viewStudentData(int studId) {
+        Connection conn = openConnection();
+//        String sql1 = "select FIRST_NAME from Manager where MAN_ID = " + manId;
+        String sql = "select `STUD_ID`,`LEVEL_ID`,`STUD_FIRST_NAME`,`STUD_MID_NAME`,`LAST_NAME`,`ADDRESS` "
+                + " ,`GENDER`,`DATE_OF_BIRTH`,`PHONE`,`PARENT_ID` "
+                + " from students where STUD_ID = " + studId;
+        ResultSet rs = excuteQuery(sql, conn);
+        Student m = new Student();
+        try {
+            while (rs.next()) {
+                m.setStudentId(rs.getInt(1));//STUD_ID                
+                m.setStudentLevel(rs.getInt(2));//LEVEL_ID
+                m.setFirstName(rs.getString(3));//STUD_FIRST_NAME
+                m.setMidName(rs.getString(4));//STUD_MID_NAME
+                m.setLastName(rs.getString(5));//LAST_NAME
+                m.setAddress(rs.getString(6));//ADDRESS
+                m.setGender(rs.getString(7));//GENDER
+                m.setDateOfBirth(rs.getDate(8));//DATE_OF_BIRTH
+                m.setPhone(rs.getString(9));//PHONE
+                if (m.getParent() != null) {
+                    m.getParent().setParentId(rs.getInt(10));//PARENT_ID    
+                }
+
+            }
+            closeConnection(conn);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return m;
+    }
+
+    @Override
+    public Result viewResultData(int quesId, int studentId) {
+        Connection conn = openConnection();
+//        String sql1 = "select FIRST_NAME from Manager where MAN_ID = " + manId;
+        String sql = "SELECT `QUES_ID`,`STUD_ID`,`GRADE` FROM `result` where QUES_ID=" + quesId + " and STUD_ID = " + studentId;
+        ResultSet rs = excuteQuery(sql, conn);
+        Result m = new Result();
+        try {
+            while (rs.next()) {
+                m.setGrade(rs.getInt(3));//GRADE
+                if (m.getQuestion() != null && m.getStudent() != null) {
+                    m.getQuestion().setQuesId(rs.getInt(1));//QUES_ID                
+                    m.getStudent().setStudentId(rs.getInt(2));//STUD_ID  
+                }
+            }
+            closeConnection(conn);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return m;
+    }
+
+    @Override
+    public StudentAttendance viewAttendanceOfStudentData(int attendId, int studentId) {
+        Connection conn = openConnection();
+//        String sql1 = "select FIRST_NAME from Manager where MAN_ID = " + manId;
+        String sql = "SELECT `ATTEND_ID`,`ATTEND_DATE`,`STATUS`,`STUD_ID` FROM attendance_student where ATTEND_ID=" + attendId +" and STUD_ID = " + studentId;
+        ResultSet rs = excuteQuery(sql, conn);
+        StudentAttendance m = new StudentAttendance();
+        try {
+            while (rs.next()) {
+                m.setAttendanceId(rs.getInt(1));//ATTEND_ID                
+                m.setAttendanceDate(rs.getDate(2));//ATTEND_DATE
+                m.setStatus(rs.getInt(3));//STATUS
+                if (m.getStudent() != null) {
+                    m.getStudent().setStudentId(rs.getInt(4));//STUD_ID
+                }
+            }
+            closeConnection(conn);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return m;
+    }
+
+    @Override
+    public TeacherAttendence viewAttendanceOfTeacherData(int attendId, int teachId) {
+         Connection conn = openConnection();
+//        String sql1 = "select FIRST_NAME from Manager where MAN_ID = " + manId;
+        String sql = "SELECT `ATTEND_ID`,`ATTEND_DATE`,`STATUS`,`TEACH_ID` FROM attendance_teacher where ATTEND_ID=" + attendId +" and TEACH_ID = " + teachId;
+        ResultSet rs = excuteQuery(sql, conn);
+        TeacherAttendence m = new TeacherAttendence();
+        try {
+            while (rs.next()) {
+                m.setAttenendceID(rs.getInt(1));//ATTEND_ID                
+                m.setAttendenceDate(rs.getDate(2));//ATTEND_DATE
+                m.setStatus(rs.getInt(3));//STATUS
+                if (m.getTeacher() != null) {
+                    m.getTeacher().setTeacherID(rs.getInt(4));//TEACH_ID
+                }
             }
             closeConnection(conn);
         } catch (Exception ex) {

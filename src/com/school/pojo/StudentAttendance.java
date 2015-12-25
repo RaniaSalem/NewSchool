@@ -5,15 +5,17 @@
  */
 package com.school.pojo;
 
+import java.util.Date;
+
 /**
  *
  * @author Noura
  */
 public class StudentAttendance {
      private int attendanceId;
-   private int attendanceDate;
+   private Date attendanceDate;
    private int status;
-   private int studentId;
+   private Student student;
    
     public int getAttendanceId() {
         return attendanceId;
@@ -23,13 +25,7 @@ public class StudentAttendance {
         this.attendanceId = attendanceId;
     }
 
-    public int getAttendanceDate() {
-        return attendanceDate;
-    }
-
-    public void setAttendanceDate(int attendanceDate) {
-        this.attendanceDate = attendanceDate;
-    }
+  
 
     public int getStatus() {
         return status;
@@ -39,12 +35,34 @@ public class StudentAttendance {
         this.status = status;
     }
 
-    public int getStudentId() {
-        return studentId;
+    /**
+     * @return the student
+     */
+    public Student getStudent() {
+        return student;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
+    /**
+     * @param student the student to set
+     */
+    public void setStudent(Student student) {
+        this.student = student;
     }
+
+    /**
+     * @return the attendanceDate
+     */
+    public Date getAttendanceDate() {
+        return attendanceDate;
+    }
+
+    /**
+     * @param attendanceDate the attendanceDate to set
+     */
+    public void setAttendanceDate(Date attendanceDate) {
+        this.attendanceDate = attendanceDate;
+    }
+
+  
    
 }
