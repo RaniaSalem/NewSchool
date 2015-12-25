@@ -41,5 +41,13 @@ public class TeacherDao extends DataBaseDaoImp {
 
         return teacher;
     }
-
+public void deleteTeacher(int teacherID){
+    Connection conn = openConnection();
+       String sql ="DELETE FROM Teacher WHERE TEACH_ID ="+ teacherID;
+        updateQuery(sql, conn);
+        closeConnection(conn);
+}
+    
+    
+    
 }
