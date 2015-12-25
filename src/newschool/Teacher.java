@@ -12,6 +12,7 @@ import java.util.Date;
  * @author toshiba
  */
 public class Teacher {
+
     private int teacherID;
     private Date dateOfHire;
     private String lastPosition;
@@ -30,7 +31,7 @@ public class Teacher {
         return teacherID;
     }
 
-    public void setTeacherID(int teacher_ID) {
+    public void setTeacherID(int teacherID) {
         this.teacherID = teacherID;
     }
 
@@ -130,13 +131,4 @@ public class Teacher {
         this.type = type;
     }
 
-   
 }
-    
-    
-    
-    
-    
-    
-    
-
