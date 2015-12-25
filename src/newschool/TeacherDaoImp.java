@@ -33,9 +33,9 @@ public class TeacherDaoImp {
  
  private  static void print (Teacher teacher)
 {System.out.println("TeacherID:"+teacher.getTeacherID());
-System.out.println("FirstName:");
-System.out.println("MidName:");
-System.out.println("LastName:");
+System.out.println("FirstName:"+teacher.getFirstName());
+System.out.println("MidName:"+teacher.getMidName());
+System.out.println("LastName:"+teacher.getLastName());
 SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 String DOB = format.format(teacher.getDateOfBirth());
 String DOH = format.format(teacher.getDateOfHire());
