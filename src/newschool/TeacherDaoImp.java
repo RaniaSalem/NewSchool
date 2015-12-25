@@ -19,6 +19,8 @@ public class TeacherDaoImp {
     private static void displayTeacher() {
 
         TeacherDao teacherDao = new TeacherDao();
+         TeacherDao teacherDao2 = new TeacherDao();
+         teacherDao2.deleteTeacher(2);
         try {
             Teacher teacher = teacherDao.getTeacher(1);
             if (teacher != null) {
