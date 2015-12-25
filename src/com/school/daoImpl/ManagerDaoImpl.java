@@ -8,10 +8,10 @@ public class ManagerDaoImpl {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         printManagerDetails(1);////select data in table Manager
-//        ManagerDao managerDao = new ManagerDao(); 
-//        managerDao.InsertDataMan(5, "2015/12/1", "high", "Manager", "Mahmoud", "Mohamed", "Mostafa", "Sharqia", "Male", "1666/12/1", "123456789", "High Manager");//insert data(man_id) in table Manager
-//        managerDao.removeDataMan(13);//delete data(man_id) in table Manager
-//        managerDao.editDataMan(5, "Mahmouddddddd", "2015/12/1", "high", "Manager", "Mohamed", "Mostafa", "Sharqia", "Male", "1666/12/1", "123456789", "Manager");//update data(first_name) according to (man_id)in table Manager
+        ManagerDao managerDao = new ManagerDao(); 
+        managerDao.InsertDataMan(5, "2015/12/1", "high", "Manager", "Mahmoud", "Mohamed", "Mostafa", "Sharqia", "Male", "1666/12/1", "123456789", "High Manager");//insert data(man_id) in table Manager
+        managerDao.removeDataMan(13);//delete data(man_id) in table Manager
+        managerDao.editDataMan(5, "Mahmouddddddd", "2015/12/1", "high", "Manager", "Mohamed", "Mostafa", "Sharqia", "Male", "1666/12/1", "123456789", "Manager");//update data(first_name) according to (man_id)in table Manager
 
     }
     ////select data in table Manager
