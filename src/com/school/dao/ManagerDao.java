@@ -35,7 +35,7 @@ public class ManagerDao {
     public Manager viewManagerScreen(int manId) {
         DataBaseDaoImp dataBaseDaoImpl = new DataBaseDaoImp();
         Connection conn = dataBaseDaoImpl.openConnection();
-        String sql1 = "select FIRST_NAME from Manager where MAN_ID = " + manId;
+//        String sql1 = "select FIRST_NAME from Manager where MAN_ID = " + manId;
         String sql = "select `DATE_OF_HIRE`,`QUALIFICATION`,`POSITION`,`FIRST_NAME`,`MID_NAME`,`LAST_NAME`,`ADDRESS` "
                 + ",`GENDER`,`DATE_OF_BIRTH`,`PHONE`,`TYPE` ,`MAN_ID` "
                 + " from manager where MAN_ID = " + manId;
