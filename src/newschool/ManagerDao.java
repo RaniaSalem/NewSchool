@@ -11,7 +11,7 @@ public class ManagerDao {
         String sql = "insert into Manager (MAN_ID,`DATE_OF_HIRE`,`QUALIFICATION`,`POSITION`,`FIRST_NAME`,`MID_NAME`,`LAST_NAME`,`ADDRESS`,`GENDER`,`DATE_OF_BIRTH`,`PHONE`,`TYPE`)"
                 + "values (" + manId + ",'" + dateOfHire + "','" + qualification + "','" + postion + "','" + firstName + "','" + midName + "','" + lastName + "','" + address + "','" + gender + "','" + dateBirth + "','" + phone + "','" + type + "')";
         dataBaseDaoImpl.updateQuery(sql, conn);
-        dataBaseDaoImpl.closeConnection(conn);
+        dataBaseDaoImpl.closeConnection(conn); 
     }
 
     public synchronized void removeDataMan(Object manId) {
