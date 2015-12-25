@@ -17,7 +17,7 @@ public class ManagerDemo {
         managerDaoImpl.insertDataMan(16, "2015/12/1", "high", "Manager", "Mahmoud", "Mohamed", "Mostafa", "Sharqia", "Male", "1666/12/1", "123456789", "High Manager");//insert data(man_id) in table Manager
         managerDaoImpl.removeDataMan(13);//delete data(man_id) in table Manager
         managerDaoImpl.editDataMan(5, "Mahmouddddddd", "2015/12/1", "high", "Manager", "Mohamed", "Mostafa", "Sharqia", "Male", "1666/12/1", "123456789", "Manager");//update data(first_name) according to (man_id)in table Manager
-//        operation on Teacher
+//        operation on Teacher 
         managerDaoImpl.insertDataTeacher(53, "2015/12/1", "high", "Teacher", "sepci", "Mahmoud", "Mohamed", "Mostafa", "Sharqia", "Male", "1666/12/1", "123456789", "Teacher");
         managerDaoImpl.removeDataTeacher(53); 
         managerDaoImpl.editDataTeacher(53, "2015/12/1", "high", "Teacher", "sepcihhhhh", "Mahmoud", "Mohamed", "Mostafa", "Sharqia", "Male", "1666/12/1", "123456789", "Teacher");
