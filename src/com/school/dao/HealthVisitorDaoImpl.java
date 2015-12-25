@@ -39,7 +39,7 @@ public class HealthVisitorDaoImpl extends DataBaseDaoImp implements HealthVisito
     }
 
     @Override
-    public void editDataHealthVisitorFirstName(HealthVisitor healthvisitorId, HealthVisitor firstName, HealthVisitor dateOfHire, HealthVisitor qualification, HealthVisitor postion, HealthVisitor midName, HealthVisitor lastName, HealthVisitor address, HealthVisitor gender, HealthVisitor dateBirth, HealthVisitor phone) {
+    public void editDataHealthVisitorFirstName(Object healthvisitorId, Object firstName, Object dateOfHire, Object qualification, Object postion, Object midName, Object lastName, Object address, Object gender, Object dateBirth, Object phone) {
 
         Connection conn = openConnection();
         String sql = "update HealthVisitorset FIRST_NAME = '" + firstName + "' , `DATE_OF_HIRE`='" + dateOfHire + "' , `QUALIFICATION` = '" + qualification +  "' , `MID_NAME`='" + midName + "' , `LAST_NAME`='" + lastName + "' , `ADDRESS`='" + address + "' , `GENDER`='" + gender + "' , `DATE_OF_BIRTH`='" + dateBirth + "' , `PHONE`='" + phone + "' , `TYPE`='" + "'  where HEALTH_ID = " + healthvisitorId;
