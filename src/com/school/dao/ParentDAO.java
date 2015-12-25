@@ -13,7 +13,7 @@ public interface ParentDAO {
     public void viewScheduleExam(Parent parent);
     public void addDataParent(Parent parent);
     public void viewScheduleSubject(Parent parent);
-    public void deleteDataParent(Parent parent);
+    public void deleteDataParent(int parentId);
     public void updateDataParent(Parent parent);
     
     

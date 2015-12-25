@@ -1,13 +1,16 @@
 package com.school.dao;
 
 import com.school.pojo.Parent;
+import java.sql.Connection;
 
 /**
  *
  * @author manal pc
  */
-public class ParentDAOImp implements ParentDAO{
 
+
+public class ParentDAOImp  extends DataBaseDaoImp implements ParentDAO{
+  Connection conn = openConnection();
     @Override
     public void viewMarkaStudent(Parent parent) {
     }
@@ -33,7 +36,10 @@ public class ParentDAOImp implements ParentDAO{
     }
 
     @Override
-    public void deleteDataParent(Parent parent) {
+    public void deleteDataParent(int parentId) {
+         String sql = "delete from parents where PARENT_ID = " + parentId;
+         updateQuery(sql, conn);
+        closeConnection(conn);
     }
 
     @Override
