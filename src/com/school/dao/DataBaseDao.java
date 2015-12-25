@@ -1,4 +1,4 @@
-package newschool;
+package com.school.dao;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

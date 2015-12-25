@@ -1,5 +1,7 @@
-package newschool;
+package com.school.daoImpl;
 
+import com.school.dao.TeacherDao;
+import com.school.pojo.Teacher;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;

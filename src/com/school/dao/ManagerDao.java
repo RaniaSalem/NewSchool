@@ -1,5 +1,7 @@
-package newschool;
+package com.school.dao;
 
+import com.school.daoImpl.DataBaseDaoImp;
+import com.school.pojo.Manager;
 import java.sql.Connection;
 import java.sql.ResultSet;
 

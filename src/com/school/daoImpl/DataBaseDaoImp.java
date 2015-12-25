@@ -1,5 +1,7 @@
-package newschool;
+package com.school.daoImpl;
 
+import com.school.dao.DataBaseDao;
+import com.school.pojo.DataBasePojo;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;

@@ -1,5 +1,5 @@
 
-package newschool;
+package com.school.pojo;
 
 /**
  *

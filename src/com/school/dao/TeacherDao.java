@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package newschool;
+package com.school.dao;
 
+import com.school.daoImpl.DataBaseDaoImp;
+import com.school.pojo.Teacher;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

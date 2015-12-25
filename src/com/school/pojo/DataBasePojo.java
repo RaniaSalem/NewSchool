@@ -1,4 +1,4 @@
-package newschool;
+package com.school.pojo;
 
 import java.sql.*;
 public class DataBasePojo {
