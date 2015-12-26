@@ -40,10 +40,10 @@ public class StudentDaoImp extends DataBaseDaoImp implements StudentDao {
    public Student viewStudentData(int student){
           Student studentt =new Student();
           Parent parent=new Parent();
-        Connection conn = dataBaseDaoImpl.openConnection();
-        String sql="select STUD_ID,LEVEL_ID,`STUD_FIRST_NAME`,`STUD_MID_NAME`,`LAST_NAME`,`ADDRESS`,`GENDER`,`DATE_OF_BIRTH`,`PHONE`,PARENT_ID \" +\n" +
-"                \"from students where STUD_ID="+student;
-       ResultSet rs=dataBaseDaoImpl.excuteQuery(sql, conn);
+        Connection conn = openConnection();
+        String sql="select STUD_ID,LEVEL_ID,`STUD_FIRST_NAME`,`STUD_MID_NAME`,`LAST_NAME`,`ADDRESS`,`GENDER`,`DATE_OF_BIRTH`,`PHONE`,PARENT_ID " +
+                " from students where STUD_ID="+student;
+       ResultSet rs=excuteQuery(sql, conn);
         try {
             while (rs.next()) {
              studentt.setStudentId(rs.getInt(1));
@@ -57,11 +57,27 @@ public class StudentDaoImp extends DataBaseDaoImp implements StudentDao {
              studentt.setPhone(rs.getString(9));
              parent.setParentId(rs.getInt(10));
              studentt.setParent(parent);
-            
+            printStudentData(studentt);
           }
-            dataBaseDaoImpl.closeConnection(conn);
+            closeConnection(conn);
         } catch (Exception ex) {
         }
         return studentt;
+   }
+   private void printStudentData(Student studentt)
+   {
+System.out.println(""+studentt.getStudentId());
+           System.out.println("getStudentId:"+studentt.getStudentId()); 
+           System.out.println("getFirstName:"+studentt.getFirstName()); 
+           System.out.println("getMidName:"+studentt.getMidName());  
+           System.out.println("getLastName:"+studentt.getLastName()); 
+           System.out.println("getAddress:"+studentt.getAddress()); 
+            System.out.println("getGender:"+studentt.getGender()); 
+           System.out.println("getDateOfBirth:"+studentt.getDateOfBirth());  
+           System.out.println("getPhone:"+studentt.getPhone()); 
+           if (studentt.getParent() !=null) {
+           System.out.println("getParentId:"+studentt.getParent().getParentId());   
+       }
+          
    }
 }
