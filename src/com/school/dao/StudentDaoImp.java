@@ -24,7 +24,7 @@ public class StudentDaoImp extends DataBaseDaoImp implements StudentDao {
 
 @Override
       public void updateStudentDtata(Student student,int studentId){
-        String sql="update students set STUD_ID= "+student.getStudentId()+", LEVEL_ID" + student.getStudentLevel()+ ",STUD_FIRST_NAME='"+student.getFirstName()+"', STUD_MID_NAME='"+student.getMidName()+"',LAST_NAME='"+ student.getLastName()+"',ADDRESS='"+student.getAddress()+"', GENDER='"+student.getGender()+"',PHONE='"+student.getPhone()+"',PARENT_ID="+student.getParent().getParentId()+" where STUD_ID="+studentId;
+        String sql="update students set STUD_ID= "+student.getStudentId()+", LEVEL_ID= " + student.getStudentLevel()+ ",STUD_FIRST_NAME='"+student.getFirstName()+"', STUD_MID_NAME='"+student.getMidName()+"',LAST_NAME='"+ student.getLastName()+"',ADDRESS='"+student.getAddress()+"', GENDER='"+student.getGender()+"',PHONE='"+student.getPhone()+"',PARENT_ID="+student.getParent().getParentId()+" where STUD_ID="+studentId;
         Connection conn=openConnection();
           updateQuery(sql, conn);
           closeConnection(conn);

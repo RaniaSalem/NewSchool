@@ -33,8 +33,8 @@ public class StudentDemo {
      stud.setPhone("01228546314");
      stud.setStudentId(3);
      StudentDaoImp dao1= new StudentDaoImp();
-   dao.insertStudentData(stud,test);
-    stud1.setFirstName("asmaa");
+   //dao.insertStudentData(stud,test);
+    stud1.setFirstName("moatz");
     stud1.setMidName("mohamed");
      stud1.setLastName("hosam");
      stud1.setGender("female");
@@ -44,8 +44,8 @@ public class StudentDemo {
      stud1.setStudentLevel(2);
      stud1.setDateOfBirth(date);
      stud1.setPhone("01228546314");
-     stud1.setStudentId(0);
-     //dao.updateStudentDtata(stud1, 0);
+     stud1.setStudentId(3);
+     dao.updateStudentDtata(stud1, 3);
         // dao.viewStudentData(1);
    //dao.deleteStudentData(1);
     
