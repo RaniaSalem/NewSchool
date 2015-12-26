@@ -1,7 +1,6 @@
 package com.school.dao;
 
 import com.school.pojo.Manager;
-import com.school.pojo.Parent;
 import com.school.pojo.Result;
 import com.school.pojo.Student;
 import com.school.pojo.StudentAttendance;
@@ -9,8 +8,6 @@ import com.school.pojo.Teacher;
 import com.school.pojo.TeacherAttendence;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.util.LinkedList;
-import java.util.List;
 
 public class ManagerDaoImpl extends DataBaseDaoImp implements ManagerDao {
 
@@ -66,6 +63,7 @@ public class ManagerDaoImpl extends DataBaseDaoImp implements ManagerDao {
                 m.setPhone(rs.getString(10));//PHONE
                 m.setType(rs.getString(11));//TYPE
                 m.setManId(rs.getInt(12));
+                managerData(m);//view Manager Data
             }
             closeConnection(conn);
         } catch (Exception ex) {
@@ -82,13 +80,12 @@ public class ManagerDaoImpl extends DataBaseDaoImp implements ManagerDao {
         String sql = "select `DATE_OF_HIRE`,`QUALIFICATION`,`POSITION`,`FIRST_NAME`,`MID_NAME`,`LAST_NAME`,`ADDRESS` "
                 + ",`GENDER`,`DATE_OF_BIRTH`,`PHONE`,`TYPE` ,`MAN_ID` "
                 + " from manager ";
-        ResultSet rs = excuteQuery(sql, conn); 
-//        List list= (List)rs;
-//        for (int i = 0; i < list.size(); i++) {
-//            list.
-//        }
+        ResultSet rs = excuteQuery(sql, conn);
+
         Manager m = new Manager();
         try {
+//            List list= new ArrayList<ResultSet>();
+//        for (int i = 0; i <= list.size(); i++) {
             while (rs.next()) {
 //                String firstName = rs.getString(1);
 //                System.out.println("firstName:::" + firstName);
@@ -105,12 +102,31 @@ public class ManagerDaoImpl extends DataBaseDaoImp implements ManagerDao {
                 m.setPhone(rs.getString(10));//PHONE
                 m.setType(rs.getString(11));//TYPE
                 m.setManId(rs.getInt(12));
+                //print all data
+                managerData(m);
+//            }
             }
             closeConnection(conn);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         return m;
+    }
+
+    private void managerData(Manager m) {
+        System.out.println("m.getFirstName() :" + m.getFirstName());//select data(FirstName) in table Manager
+        System.out.println("m.getAddress() :" + m.getAddress());//select data(FirstName) in table Manager
+        System.out.println("m.getGender() :" + m.getGender());//select data(FirstName) in table Manager
+        System.out.println("m.getLastName() :" + m.getLastName());//select data(FirstName) in table Manager
+        System.out.println("m.getMidName() :" + m.getMidName());//select data(FirstName) in table Manager
+        System.out.println("m.getLastName() :" + m.getLastName());//select data(FirstName) in table Manager
+        System.out.println("m.getPhone() :" + m.getPhone());//select data(FirstName) in table Manager
+        System.out.println("m.getPosition() :" + m.getPosition());//select data(FirstName) in table Manager
+        System.out.println("m.getQualification() :" + m.getQualification());//select data(FirstName) in table Manager
+        System.out.println("m.getType() :" + m.getType());//select data(FirstName) in table Manager
+        System.out.println("m.getDateOfBirth() :" + m.getDateOfBirth());//select data(FirstName) in table Manager
+        System.out.println("mm.getDateOfHire() :" + m.getDateOfHire());//select data(FirstName) in table Manager
+        System.out.println("mm.getManId() :" + m.getManId());//select data(FirstName) in table Manager     
     }
 
     @Override
@@ -167,12 +183,30 @@ public class ManagerDaoImpl extends DataBaseDaoImp implements ManagerDao {
                 m.setPhone(rs.getString(12));//PHONE
                 m.setType(rs.getString(13));//TYPE
 //                m.setTeacherID(rs.getInt(14));//TEACH_ID1
+                printTeacherDetails(m);
             }
             closeConnection(conn);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         return m;
+    }
+
+    private void printTeacherDetails(Teacher teacher) {
+        System.out.println("getFirstName() :" + teacher.getFirstName());//select data(FirstName) in table teacher
+        System.out.println("getAddress() :" + teacher.getAddress());//select data(FirstName) in table teacher
+        System.out.println("getGender() :" + teacher.getGender());//select data(FirstName) in table teacher
+        System.out.println("getLastName() :" + teacher.getLastName());//select data(FirstName) in table teacher
+        System.out.println("getMidName() :" + teacher.getMidName());//select data(FirstName) in table teacher
+        System.out.println("getLastName() :" + teacher.getLastName());//select data(FirstName) in table teacher
+        System.out.println("getPhone() :" + teacher.getPhone());//select data(FirstName) in table teacher
+        System.out.println("getPosition() :" + teacher.getLastPosition());//select data(FirstName) in table teacher
+        System.out.println("getQualification() :" + teacher.getQualification());//select data(FirstName) in table teacher
+        System.out.println("getType() :" + teacher.getType());//select data(FirstName) in table teacher
+        System.out.println("getDateOfBirth() :" + teacher.getDateOfBirth());//select data(FirstName) in table teacher
+        System.out.println("getDateOfHire() :" + teacher.getDateOfHire());//select data(FirstName) in table teacher
+        System.out.println("getTeacherID() :" + teacher.getTeacherID());//select data(FirstName) in table teacher   
+        System.out.println("getSpecialization() :" + teacher.getSpecialization());//select data(FirstName) in table teacher 
     }
 
     @Override
@@ -224,13 +258,29 @@ public class ManagerDaoImpl extends DataBaseDaoImp implements ManagerDao {
                 if (m.getParent() != null) {
                     m.getParent().setParentId(rs.getInt(10));//PARENT_ID    
                 }
-
+                printStudentDetails(m);
             }
             closeConnection(conn);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         return m;
+    }
+
+    private void printStudentDetails(Student student) {
+        System.out.println("getFirstName() :" + student.getFirstName());//select data(FirstName) in table teacher
+        System.out.println("getAddress() :" + student.getAddress());//select data(FirstName) in table teacher
+        System.out.println("getGender() :" + student.getGender());//select data(FirstName) in table teacher
+        System.out.println("getLastName() :" + student.getLastName());//select data(FirstName) in table teacher
+        System.out.println("getMidName() :" + student.getMidName());//select data(FirstName) in table teacher
+        System.out.println("getLastName() :" + student.getLastName());//select data(FirstName) in table teacher
+        System.out.println("getPhone() :" + student.getPhone());//select data(FirstName) in table teacher
+        if (student.getParent() != null) {
+            System.out.println("getParent() :" + student.getParent().getParentId());//select data(FirstName) in table teacher
+        }
+        System.out.println("getDateOfBirth() :" + student.getDateOfBirth());//select data(FirstName) in table teacher
+        System.out.println("getStudentId() :" + student.getStudentId());//select data(FirstName) in table teacher   
+        System.out.println("getStudentLevel() :" + student.getStudentLevel());//select data(FirstName) in table teacher 
     }
 
     @Override
@@ -247,6 +297,7 @@ public class ManagerDaoImpl extends DataBaseDaoImp implements ManagerDao {
                     m.getQuestion().setQuesId(rs.getInt(1));//QUES_ID                
                     m.getStudent().setStudentId(rs.getInt(2));//STUD_ID  
                 }
+                printResultsDetails(m);
             }
             closeConnection(conn);
         } catch (Exception ex) {
@@ -255,11 +306,19 @@ public class ManagerDaoImpl extends DataBaseDaoImp implements ManagerDao {
         return m;
     }
 
+    private void printResultsDetails(Result result) {
+        System.out.println("getGrade() :" + result.getGrade());//select data(FirstName) in table teacher
+        if (result.getStudent() != null && result.getQuestion() != null) {
+            System.out.println("getStudentId() :" + result.getStudent().getStudentId());//select data(FirstName) in table teacher
+            System.out.println("getQuesId() :" + result.getQuestion().getQuesId());//select data(FirstName) in table teacher
+        }
+    }
+
     @Override
     public StudentAttendance viewAttendanceOfStudentData(int attendId, int studentId) {
         Connection conn = openConnection();
 //        String sql1 = "select FIRST_NAME from Manager where MAN_ID = " + manId;
-        String sql = "SELECT `ATTEND_ID`,`ATTEND_DATE`,`STATUS`,`STUD_ID` FROM attendance_student where ATTEND_ID=" + attendId +" and STUD_ID = " + studentId;
+        String sql = "SELECT `ATTEND_ID`,`ATTEND_DATE`,`STATUS`,`STUD_ID` FROM attendance_student where ATTEND_ID=" + attendId + " and STUD_ID = " + studentId;
         ResultSet rs = excuteQuery(sql, conn);
         StudentAttendance m = new StudentAttendance();
         try {
@@ -270,6 +329,7 @@ public class ManagerDaoImpl extends DataBaseDaoImp implements ManagerDao {
                 if (m.getStudent() != null) {
                     m.getStudent().setStudentId(rs.getInt(4));//STUD_ID
                 }
+                printStudentAttendanceDetails(m);//show attendance of Students
             }
             closeConnection(conn);
         } catch (Exception ex) {
@@ -278,11 +338,20 @@ public class ManagerDaoImpl extends DataBaseDaoImp implements ManagerDao {
         return m;
     }
 
+    private void printStudentAttendanceDetails(StudentAttendance studentAttendance) {
+        System.out.println("getAttendanceId() :" + studentAttendance.getAttendanceId());//select data(FirstName) in table teacher
+        System.out.println("getAttendanceDate() :" + studentAttendance.getAttendanceDate());//select data(FirstName) in table teacher
+        System.out.println("getStatus() :" + studentAttendance.getStatus());//select data(FirstName) in table teacher
+        if (studentAttendance.getStudent() != null) {
+            System.out.println("getStudentId() :" + studentAttendance.getStudent().getStudentId());//select data(FirstName) in table teacher 
+        }
+    }
+
     @Override
     public TeacherAttendence viewAttendanceOfTeacherData(int attendId, int teachId) {
-         Connection conn = openConnection();
+        Connection conn = openConnection();
 //        String sql1 = "select FIRST_NAME from Manager where MAN_ID = " + manId;
-        String sql = "SELECT `ATTEND_ID`,`ATTEND_DATE`,`STATUS`,`TEACH_ID` FROM attendance_teacher where ATTEND_ID=" + attendId +" and TEACH_ID = " + teachId;
+        String sql = "SELECT `ATTEND_ID`,`ATTEND_DATE`,`STATUS`,`TEACH_ID` FROM attendance_teacher where ATTEND_ID=" + attendId + " and TEACH_ID = " + teachId;
         ResultSet rs = excuteQuery(sql, conn);
         TeacherAttendence m = new TeacherAttendence();
         try {
@@ -293,11 +362,21 @@ public class ManagerDaoImpl extends DataBaseDaoImp implements ManagerDao {
                 if (m.getTeacher() != null) {
                     m.getTeacher().setTeacherID(rs.getInt(4));//TEACH_ID
                 }
+                printTeacherAttendanceDetails(m);//view data of Teacher
             }
             closeConnection(conn);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         return m;
+    }
+
+    private void printTeacherAttendanceDetails(TeacherAttendence teacherAttendence) {
+        System.out.println("getAttendanceId() :" + teacherAttendence.getAttenendceID());//select data(FirstName) in table teacher
+        System.out.println("getAttendanceDate() :" + teacherAttendence.getAttendenceDate());//select data(FirstName) in table teacher
+        System.out.println("getStatus() :" + teacherAttendence.getStatus());//select data(FirstName) in table teacher
+        if (teacherAttendence.getTeacher() != null) {
+            System.out.println("getTeacherID() :" + teacherAttendence.getTeacher().getTeacherID());//select data(FirstName) in table teacher 
+        }
     }
 }
