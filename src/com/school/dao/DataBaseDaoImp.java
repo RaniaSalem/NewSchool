@@ -22,8 +22,8 @@ public class DataBaseDaoImp implements DataBaseDao {
         Connection conn = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String connectionUrl = "jdbc:mysql://localhost/schoolmanagmentsystem";
-            conn = DriverManager.getConnection(connectionUrl, "root", "");
+            String connectionUrl = "jdbc:mysql://localhost/School";
+            conn = DriverManager.getConnection(connectionUrl, "root", "123");
         } catch (Exception e) {
             e.printStackTrace();
         }
