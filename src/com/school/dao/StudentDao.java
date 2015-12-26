@@ -8,8 +8,8 @@ import com.school.pojo.Student;
  * @author toshiba
  */
 public interface StudentDao {
-      public void insertStudentData(Student student);
+      public void insertStudentData(Student student,Object dateofbirth);
    public void updateStudentDtata(Student student,int studentId);
    public void  deleteStudentData(int studentId);
-   public Student viewStudentData(int student);  
+   public Student viewStudentData(int student); 
 }
