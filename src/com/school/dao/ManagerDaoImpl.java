@@ -82,7 +82,7 @@ public class ManagerDaoImpl extends DataBaseDaoImp implements ManagerDao {
         String sql = "select `DATE_OF_HIRE`,`QUALIFICATION`,`POSITION`,`FIRST_NAME`,`MID_NAME`,`LAST_NAME`,`ADDRESS` "
                 + ",`GENDER`,`DATE_OF_BIRTH`,`PHONE`,`TYPE` ,`MAN_ID` "
                 + " from manager ";
-        ResultSet rs = excuteQuery(sql, conn);
+        ResultSet rs = excuteQuery(sql, conn); 
 //        List list= (List)rs;
 //        for (int i = 0; i < list.size(); i++) {
 //            list.
