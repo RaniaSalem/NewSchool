@@ -1,6 +1,5 @@
 package com.school.dao;
 
-import com.school.dao.DataBaseDao;
 import com.school.pojo.DataBasePojo;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -18,6 +17,7 @@ public class DataBaseDaoImp implements DataBaseDao {
      *
      * @return
      */
+    @Override
     public Connection openConnection() {
         Connection conn = null;
         try {
