@@ -14,7 +14,7 @@ import com.school.dao.ParentDAOImp;
 public class ParentDemo {
     public static void main(String[] args) {
         ParentDAOImp pdi=new ParentDAOImp();
-       pdi.deleteDataParent(1);
+       pdi.deleteDataParent(1); 
         pdi.insertDataParent(2, "Rania", "Salem", "Mohamed", "Elfayom", "female", "1992/12/2","01020252552", 5);
     }
 }
