@@ -16,15 +16,15 @@ public class StudentDaoImp extends DataBaseDaoImp implements StudentDao {
     public void insertStudentData(Student student,Object dateofbirth){
      Connection conn = openConnection();
      
-      String sql = "insert into students (STUD_ID, LEVEL_ID, `STUD_FIRST_NAME`, `STUD_MID_NAME`,`LAST_NAME`,`ADDRESS`,`GENDER`,`PHONE`,PARENT_ID)"
-                + "values (" +student.getStudentId() + ",'" + student.getStudentLevel() + "','" +student.getFirstName() + "','" +student.getMidName()  + "','" +student.getLastName() + "','" + student.getAddress() + "','" + student.getGender()+"','"+  student.getPhone() + "','" +student.getParent().getParentId()+  "')";
+      String sql = "insert into students (STUD_ID,LEVEL_ID,`STUD_FIRST_NAME`,`STUD_MID_NAME`,`LAST_NAME`,`ADDRESS`,`GENDER`,`PHONE`,PARENT_ID)"
+                + "values (" +student.getStudentId() + ",'" + student.getStudentLevel() + "','" +student.getFirstName() + "','" +student.getMidName()  + "','" +student.getLastName() + "','" + student.getAddress() + "','" + student.getGender()+ "','"  +student.getPhone() + "','" +student.getParent().getParentId()+  "')";
        updateQuery(sql, conn);
         closeConnection(conn);
     }
 
 @Override
       public void updateStudentDtata(Student student,int studentId){
-        String sql="update students set STUD_ID= "+student.getStudentId()+", LEVEL_ID= " + student.getStudentLevel()+ ",STUD_FIRST_NAME='"+student.getFirstName()+"', STUD_MID_NAME='"+student.getMidName()+"',LAST_NAME='"+ student.getLastName()+"',ADDRESS='"+student.getAddress()+ "', GENDER='"+student.getGender()+"',PHONE='"+student.getPhone()+"',PARENT_ID="+student.getParent().getParentId()+" where STUD_ID="+studentId;
+        String sql="update students set STUD_ID= "+student.getStudentId()+", LEVEL_ID" + student.getStudentLevel()+ ",STUD_FIRST_NAME='"+student.getFirstName()+"', STUD_MID_NAME='"+student.getMidName()+"',LAST_NAME='"+ student.getLastName()+"',ADDRESS='"+student.getAddress()+"', GENDER='"+student.getGender()+"',PHONE='"+student.getPhone()+"',PARENT_ID="+student.getParent().getParentId()+" where STUD_ID="+studentId;
         Connection conn=openConnection();
           updateQuery(sql, conn);
           closeConnection(conn);
@@ -33,10 +33,8 @@ public class StudentDaoImp extends DataBaseDaoImp implements StudentDao {
    public void  deleteStudentData(int studentId){
         Connection conn = openConnection();
          String sql = "delete from students where STUD_ID= " + studentId;
-         
            updateQuery(sql, conn);
            closeConnection(conn);
-           System.out.println("deleted");
    }
 @Override
    public Student viewStudentData(int student){

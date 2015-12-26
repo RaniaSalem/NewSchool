@@ -22,8 +22,8 @@ public class StudentDemo {
     String test="02/04/2015";
      Date date = fmt.parse(test);
              stud.setDateOfBirth(date);
-    stud.setFirstName("Nourhan");
-    stud.setMidName("Hosny");
+    stud.setFirstName("mazen");
+    stud.setMidName("ahmed");
      stud.setLastName("Taha");
      stud.setGender("female");
      parent.setParentId(3);
@@ -31,9 +31,9 @@ public class StudentDemo {
      stud.setStudentLevel(2);
      stud.setDateOfBirth(date);
      stud.setPhone("01228546314");
-     stud.setStudentId(2);
+     stud.setStudentId(3);
      StudentDaoImp dao1= new StudentDaoImp();
-   // dao.insertStudentData(stud,test);
+   dao.insertStudentData(stud,test);
     stud1.setFirstName("asmaa");
     stud1.setMidName("mohamed");
      stud1.setLastName("hosam");
@@ -45,7 +45,7 @@ public class StudentDemo {
      stud1.setDateOfBirth(date);
      stud1.setPhone("01228546314");
      stud1.setStudentId(0);
-     dao.updateStudentDtata(stud1, 0);
+     //dao.updateStudentDtata(stud1, 0);
         // dao.viewStudentData(1);
    //dao.deleteStudentData(1);
     
