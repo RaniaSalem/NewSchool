@@ -1,6 +1,8 @@
 package com.school.dao;
 
 import com.school.pojo.Manager;
+import com.school.pojo.Parent;
+import com.school.pojo.Questions;
 import com.school.pojo.Result;
 import com.school.pojo.Student;
 import com.school.pojo.StudentAttendance;
@@ -243,6 +245,7 @@ public class ManagerDaoImpl extends DataBaseDaoImp implements ManagerDao {
                 + " ,`GENDER`,`DATE_OF_BIRTH`,`PHONE`,`PARENT_ID` "
                 + " from students where STUD_ID = " + studId;
         ResultSet rs = excuteQuery(sql, conn);
+        Parent parent=new Parent();
         Student m = new Student();
         try {
             while (rs.next()) {
@@ -255,6 +258,7 @@ public class ManagerDaoImpl extends DataBaseDaoImp implements ManagerDao {
                 m.setGender(rs.getString(7));//GENDER
                 m.setDateOfBirth(rs.getDate(8));//DATE_OF_BIRTH
                 m.setPhone(rs.getString(9));//PHONE
+                m.setParent(parent);
                 if (m.getParent() != null) {
                     m.getParent().setParentId(rs.getInt(10));//PARENT_ID    
                 }
@@ -289,10 +293,14 @@ public class ManagerDaoImpl extends DataBaseDaoImp implements ManagerDao {
 //        String sql1 = "select FIRST_NAME from Manager where MAN_ID = " + manId;
         String sql = "SELECT `QUES_ID`,`STUD_ID`,`GRADE` FROM `result` where QUES_ID=" + quesId + " and STUD_ID = " + studentId;
         ResultSet rs = excuteQuery(sql, conn);
+        Student student = new Student();
+        Questions question = new Questions();
         Result m = new Result();
         try {
             while (rs.next()) {
                 m.setGrade(rs.getInt(3));//GRADE
+                m.setQuestion(question);
+                m.setStudent(student);
                 if (m.getQuestion() != null && m.getStudent() != null) {
                     m.getQuestion().setQuesId(rs.getInt(1));//QUES_ID                
                     m.getStudent().setStudentId(rs.getInt(2));//STUD_ID  
@@ -320,12 +328,14 @@ public class ManagerDaoImpl extends DataBaseDaoImp implements ManagerDao {
 //        String sql1 = "select FIRST_NAME from Manager where MAN_ID = " + manId;
         String sql = "SELECT `ATTEND_ID`,`ATTEND_DATE`,`STATUS`,`STUD_ID` FROM attendance_student where ATTEND_ID=" + attendId + " and STUD_ID = " + studentId;
         ResultSet rs = excuteQuery(sql, conn);
+        Student student = new Student();
         StudentAttendance m = new StudentAttendance();
         try {
             while (rs.next()) {
                 m.setAttendanceId(rs.getInt(1));//ATTEND_ID                
                 m.setAttendanceDate(rs.getDate(2));//ATTEND_DATE
                 m.setStatus(rs.getInt(3));//STATUS
+                m.setStudent(student);
                 if (m.getStudent() != null) {
                     m.getStudent().setStudentId(rs.getInt(4));//STUD_ID
                 }
@@ -353,12 +363,14 @@ public class ManagerDaoImpl extends DataBaseDaoImp implements ManagerDao {
 //        String sql1 = "select FIRST_NAME from Manager where MAN_ID = " + manId;
         String sql = "SELECT `ATTEND_ID`,`ATTEND_DATE`,`STATUS`,`TEACH_ID` FROM attendance_teacher where ATTEND_ID=" + attendId + " and TEACH_ID = " + teachId;
         ResultSet rs = excuteQuery(sql, conn);
+        Teacher teacher = new Teacher();
         TeacherAttendence m = new TeacherAttendence();
         try {
             while (rs.next()) {
                 m.setAttenendceID(rs.getInt(1));//ATTEND_ID                
                 m.setAttendenceDate(rs.getDate(2));//ATTEND_DATE
                 m.setStatus(rs.getInt(3));//STATUS
+                m.setTeacher(teacher);
                 if (m.getTeacher() != null) {
                     m.getTeacher().setTeacherID(rs.getInt(4));//TEACH_ID
                 }
