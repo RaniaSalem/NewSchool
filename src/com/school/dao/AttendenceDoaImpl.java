@@ -21,7 +21,7 @@ public class AttendenceDoaImpl extends DataBaseDaoImp implements AttendenceDoa{
 
     @Override
     public void TakeAttendence(Student StudentId, Student StudentFirstName, Student StudentMidName, Student StudentLastName, Student Level, StudentAttendance Statues) {
-       String sql = "insert into Student (STUD_ID,`STUD_FIRST_NAME`,`STUD_MID_NAME`,`STUD_LAST_NAME`,`LEVEL_ID`) "
+       String sql = "insert into students (STUD_ID,`STUD_FIRST_NAME`,`STUD_MID_NAME`,`STUD_LAST_NAME`,`LEVEL_ID`) "
                 + " values (" + StudentId + ",'" + StudentFirstName + "','" + StudentMidName + "','" + StudentLastName+ "','" + Level+ "')";
         updateQuery(sql, conn);
         String sql2 = "insert into attendance_student (STATUS) "
